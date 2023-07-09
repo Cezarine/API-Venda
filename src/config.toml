@@ -1,0 +1,15 @@
+[database]
+host="localhost"
+name="api_mercadolivre"
+user="user_mercadolivre"
+pass="1122"
+port="5432"
+
+[api]
+port="9000"
+
+[mercadolivre]
+CLIENT_ID="3459603034370238"
+CLIENT_SECRET="lUnfSSRxgGlH6EgoiakiCY8bY07Nz0A0"
+REDIRECT_URI="http://localhost:3003" 
+SYS_PWD="123mudar"

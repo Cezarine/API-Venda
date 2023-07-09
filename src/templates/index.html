@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Livre</title>
+</head>
+<body>
+    <div class="dark:bg-slate-800 h-screen w-screen">
+      <div class="bg-white dark:bg-slate-700 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
+        <p class="text-center text-slate-900 dark:text-yellow-400 mb-5 text-5xl font-medium tracking-tight">Mercado Livre</p>
+        <h3 class="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">Writes Upside-Down</h3>
+        <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
+          The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
+        </p>
+      </div>
+      <div class="grid grid-flow-row-dense grid-cols-5 grid-rows-5 p-3 gap-1">
+        <thead>
+            <div class="text-center dark:text-white border-4 border-neutral-900 slate-900 bg-slate-400 rounded-lg">Code</div>
+            <div class="text-center dark:text-white border-4 border-neutral-900 slate-900 bg-slate-400 rounded-lg">Access_Token</div>
+            <div class="text-center dark:text-white border-4 border-neutral-900 slate-900 bg-slate-400 rounded-lg">Client_id</div>
+            <div class="text-center dark:text-white border-4 border-neutral-900 slate-900 bg-slate-400 rounded-lg">Client_secret</div>
+            <br>
+        </thead> 
+        <tbody>
+            {{range .usuarios}}
+            <div class="text-center dark:text-white border-4 border-neutral-900 slate-900 bg-slate-700 rounded-lg">{{.Code}}</div>
+            <div class="text-center dark:text-white border-4 border-neutral-900 slate-900 bg-slate-700  rounded-lg">{{.Access_Token}}</div>
+            <div class="text-center dark:text-white border-4 border-neutral-900 slate-900 bg-slate-700  rounded-lg">{{.Client_id}}</div>
+            <div class="text-center dark:text-white border-4 border-neutral-900 slate-900 bg-slate-700  rounded-lg">{{.Client_secret}}</div>
+            <button class="text-center rounded-full bg-cyan-500 hover:bg-cyan-600 ">Consulta Token</button>
+            {{end}}
+        </tbody>
+      </div>
+  </div>
+</body>
+</html>
+
+<!-- <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"></svg> -->
