@@ -12,7 +12,7 @@ import (
 )
 
 func Create(c *gin.Context) {
-	var todo models.Todo
+	var todo models.Appscomercial
 
 	err := json.NewDecoder(c.Request.Body).Decode(&todo)
 	if err != nil {
@@ -32,7 +32,7 @@ func Create(c *gin.Context) {
 	} else {
 		resp = map[string]any{
 			"Error":   false,
-			"MEssage": fmt.Sprintf("Todo inserido com sucesso! ID: %d", id),
+			"Message": fmt.Sprintf("Todo inserido com sucesso! ID: %d", id),
 		}
 	}
 
@@ -47,7 +47,7 @@ func Update(c *gin.Context) {
 		return
 	}
 
-	var todo models.Todo
+	var todo models.Appscomercial
 
 	err = json.NewDecoder(c.Request.Body).Decode(&todo)
 	if err != nil {
@@ -110,9 +110,19 @@ func Get(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, http.StatusText(http.StatusInternalServerError))
 		return
 	}
-	todo, err := models.GetTodo(int64(id))
+	todo, err := models.GetAppscomercial(int64(id))
 	if err != nil {
 		log.Printf("Erro ao buscar o registro no banco: %v", err)
 	}
 	c.JSON(http.StatusOK, todo)
+}
+
+func Index(c *gin.Context) {
+	contas, err := models.GetAll()
+	if err != nil {
+		log.Fatal("Erro ao buscar contas: ", err)
+	}
+	c.HTML(http.StatusOK, "index.html", gin.H{
+		"contas": contas,
+	})
 }

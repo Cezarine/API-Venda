@@ -2,14 +2,14 @@ package models
 
 import "github.com/APIVenda/db"
 
-func Update(id int64, todo Todo) (int64, error) {
+func Update(code int64, appscomercial Appscomercial) (int64, error) {
 	conn, err := db.OpenConnection() //Conecto com o Banco de Dados
 	if err != nil {
 		return 0, err //Se algo der erro eu retorno
 	}
 	defer conn.Close() //Mato a Conexão se nada der errado
 
-	res, err := conn.Exec(`UPDATE todos SET title=$1, description=$2, done=$3 WHERE id=$4`, todo.Title, todo.Description, todo.Done, todo.ID)
+	res, err := conn.Exec(`UPDATE appscomercial SET access_token=$1, client_id=$2, client_secret=$3 WHERE code=$4`, appscomercial.Access_token, appscomercial.Client_id, appscomercial.Client_secret)
 	if err != nil {
 		return 0, err
 	}

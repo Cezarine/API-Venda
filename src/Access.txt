@@ -1,0 +1,4 @@
+http://localhost:9000/?code=TG-64af2ade59593e000138913b-419491747&state=
+
+
+https://developers.mercadolivre.com.br/pt_br/autenticacao-e-autorizacao#Par%C3%A2metros-Refresh-token

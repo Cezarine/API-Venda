@@ -2,15 +2,15 @@ package models
 
 import "github.com/APIVenda/db"
 
-func Insert(todo Todo) (id int64, err error) {
+func Insert(appscomercial Appscomercial) (code int64, err error) {
 	conn, err := db.OpenConnection()
 	if err != nil {
 		return
 	}
 	defer conn.Close()
 
-	sql := `INSERT INTO todos (title, description, done) VALUES ($1, $2, $3) RETURNING id`
-	err = conn.QueryRow(sql, todo.Title, todo.Description, todo.Done).Scan(&id)
+	sql := `INSERT INTO appscomercial (access_token, client_id, client_secret) VALUES ($1, $2, $3) RETURNING code`
+	err = conn.QueryRow(sql, appscomercial.Access_token, appscomercial.Client_id, appscomercial.Client_secret).Scan(&code)
 
 	return
 }

@@ -48,11 +48,19 @@ func Load() error {
 		Port: viper.GetString("api.port"),
 	}
 	cfg.DB = DBConfig{
-		Host:     viper.GetString("database.host"),
-		Port:     viper.GetString("database.port"),
-		User:     viper.GetString("database.user"),
-		Pass:     viper.GetString("database.pass"),
-		DataBase: viper.GetString("database.name"),
+		/*             	//POSTGRES
+		Host:     viper.GetString("postgres.host"),
+		Port:     viper.GetString("postgres.port"),
+		User:     viper.GetString("postgres.user"),
+		Pass:     viper.GetString("postgres.pass"),
+		DataBase: viper.GetString("postgres.name"),
+		*/
+		//MYSQL
+		Host:     viper.GetString("mysql.host"),
+		Port:     viper.GetString("mysql.port"),
+		User:     viper.GetString("mysql.user"),
+		Pass:     viper.GetString("mysql.pass"),
+		DataBase: viper.GetString("mysql.name"),
 	}
 
 	return nil
